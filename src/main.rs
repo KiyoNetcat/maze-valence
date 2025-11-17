@@ -315,6 +315,19 @@ fn chunk_worker(
                         }
                     }
 
+                    for corner in &world_config.corner_map {
+                        if y >= corner.min_y
+                            && y < corner.max_y
+                            && ((offset_x as f64 - CHUNK_CENTER).abs() > CHUNK_CENTER - corner.radius as f64)
+                            && ((offset_z as f64 - CHUNK_CENTER).abs() > CHUNK_CENTER - corner.radius as f64)
+                        {
+                            block = BlockState::from_kind(
+                                BlockKind::from_str(corner.mat.as_str()).unwrap_or_default(),
+                            );
+                            break;
+                        }
+                    }
+
                     if block == (BlockState::AIR) {
                         for wall in &world_config.wall_map {
                             if y >= wall.min_y

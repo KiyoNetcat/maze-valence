@@ -22,6 +22,7 @@ pub struct Server {
 #[derive(Deserialize, Clone, valence::prelude::Resource)]
 pub struct World {
     pub center_map: Vec<Center>,
+    pub corner_map: Vec<Corner>,
     pub wall_map: Vec<Wall>,
     pub layer_map: Vec<Layer>,
     pub spawn_pos: Vec<f64>,
@@ -46,6 +47,14 @@ pub struct Wall {
 
 #[derive(Deserialize, Clone)]
 pub struct Center {
+    pub mat: String,
+    pub min_y: i32,
+    pub max_y: i32,
+    pub radius: u32,
+}
+
+#[derive(Deserialize, Clone)]
+pub struct Corner {
     pub mat: String,
     pub min_y: i32,
     pub max_y: i32,

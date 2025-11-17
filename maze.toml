@@ -7,6 +7,7 @@ velocity_secret = "CHANGE_ME"
 
 [world]
 center_map = [{ mat = "ochre_froglight", min_y = 66, max_y = 67, radius = 1 }]
+corner_map = [{ mat = "ochre_froglight", min_y = 66, max_y = 67, radius = 1 }]
 wall_map = [
     { mat = "stripped_bamboo_block", min_y = 60, max_y = 66, thick = 1 },
 ]
